@@ -1,3 +1,4 @@
+from sklearn.naive_bayes import MultinomialNB
 import pandas as pd
 import numpy as np
 
@@ -16,9 +17,9 @@ dados_treinamento = np.array(conjunto_treinamento)[:, :4]
 """ print(dados_treinamento)
 print(labels_treinamento) """
 
-from sklearn.naive_bayes import MultinomialNB
 modelo = MultinomialNB()
 modelo.fit(dados_treinamento, labels_treinamento)
 
-teste = [[4.9, 3.7, 5.1, 0.1], [5.8, 2.8, 1.5, 2]]
+teste = [[6.7, 3.3, 5.7, 2.5],  # Iris-virginica
+         ]
 print(modelo.predict(teste))
