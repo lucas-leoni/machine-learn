@@ -4,16 +4,17 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 import numpy as np
 from sklearn import tree
+from sklearn.tree import DecisionTreeClassifier
 
 acuracias = []
 for x in range(0, 100):
     dataWine = pd.read_csv(
-        "https://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.data", header=None)  # sep="" personalizar o separador
+        "https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/reprocessed.hungarian.data", header=None)  # sep="" personalizar o separador
 
     # print(dataWine.head())
 
-    labels = dataWine[4]
-    data = dataWine.drop(4, axis=1)
+    labels = dataWine[0]
+    data = dataWine.drop(0, axis=1)
 
     # print(labels.head())
     # print(data.head())
@@ -30,13 +31,13 @@ for x in range(0, 100):
 
     modelo = tree.DecisionTreeClassifier()
     modelo.fit(data_train, label_train)
-    teste = modelo.predict(data_test)
-    # print(teste)
-    acuracia = accuracy_score(teste, label_test)*100
+    predict = modelo.predict(data_test)
+    print('Predict: ', predict)
+    acuracia = accuracy_score(label_test, predict)*100
     acuracias.append(acuracia)
-    # print(acuracia)
+    print('Acurácia: ', acuracia, '\n\n')
 
-print(np.mean(acuracias))  # média
-print(np.std(acuracias))  # desvio padrão
-print(np.min(acuracias))  # valor mínimo
-print(np.max(acuracias))  # valor máximo
+print('Média: ', np.mean(acuracias))  # média
+print('Desvio padrão: ', np.std(acuracias))  # desvio padrão
+print('Valor mínimo: ', np.min(acuracias))  # valor mínimo
+print('Valor máximo: ', np.max(acuracias))  # valor máximo
