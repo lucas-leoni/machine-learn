@@ -42,13 +42,17 @@ print('Desvio padrão: ', np.std(acuracias))  # desvio padrão
 print('Valor mínimo: ', np.min(acuracias))  # valor mínimo
 print('Valor máximo: ', np.max(acuracias))  # valor máximo
 
-predicao1 = [[13.71,1.86,2.36,16.6,101,2.61,2.88,.27,1.69,3.8,1.11,4,1035]] #1
-predicao2 = [[12,1.51,2.42,22,86,1.45,1.25,.5,1.63,3.6,1.05,2.65,450]] #2
-predicao3 = [[13.17,5.19,2.32,22,93,1.74,.63,.61,1.55,7.9,.6,1.48,725]] #3
+dados1 = [[13.71,1.86,2.36,16.6,101,2.61,2.88,.27,1.69,3.8,1.11,4,1035]] #1
+dados2 = [[12,1.51,2.42,22,86,1.45,1.25,.5,1.63,3.6,1.05,2.65,450]] #2
+dados3 = [[13.17,5.19,2.32,22,93,1.74,.63,.61,1.55,7.9,.6,1.48,725]] #3
 
-print('Predição1: ', modelo.predict(predicao1))
-print('Predição2: ', modelo.predict(predicao2))
-print('Predição3: ', modelo.predict(predicao3))
+predicao1 = modelo.predict(dados1)
+predicao2 = modelo.predict(dados2)
+predicao3 = modelo.predict(dados3)
+
+print('Predição1: ', predicao1)
+print('Predição2: ', predicao2)
+print('Predição3: ', predicao3)
 print('\nMatriz confusão:\n')
 print(confusion_matrix(label_test, predicao))
 print('\nRelatório:\n')
