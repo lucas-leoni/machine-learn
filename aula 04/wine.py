@@ -1,8 +1,7 @@
 from sklearn.naive_bayes import MultinomialNB
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 import numpy as np
 from sklearn import tree
 from sklearn.tree import DecisionTreeClassifier
@@ -52,3 +51,5 @@ print('Predição2: ', modelo.predict(predicao2))
 print('Predição3: ', modelo.predict(predicao3))
 print('\nMatriz confusão:\n')
 print(confusion_matrix(predicao, label_test))
+print('\nRelatório:\n')
+print(classification_report(label_test, predicao))
